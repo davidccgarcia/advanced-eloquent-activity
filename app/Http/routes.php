@@ -16,7 +16,7 @@ use App\Category;
 use App\Book;
 
 Route::get('/', function () {
-    $categories = Category::all();
+    $categories = Category::has('books')->get();
 
     return view('relationships', compact('categories'));
 });

@@ -4,7 +4,7 @@
     <p>{{ $category->name }} ({{ $category->num_books }}) </p>
     
     <ul>
-        @foreach ($category->books as $book)
+        @foreach ($category->public_books as $book)
             <li><strong>{{ $book->status }}</strong> - {{ $book->title }} </li>
         @endforeach
     </ul>

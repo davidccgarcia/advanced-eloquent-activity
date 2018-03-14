@@ -11,6 +11,25 @@
 |
 */
 
+use Illuminate\Http\Request;
+use App\Book;
+
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('books', function () {
+    $books = Book::all();
+
+    return view('books', compact('books'));
+});
+
+Route::delete('books/destroy', function (Request $request) {
+    $books = $request->get('books');
+
+    if (count($books)) {
+        Book::destroy($books);
+    }
+
+    return back();
 });

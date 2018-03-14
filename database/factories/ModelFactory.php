@@ -22,6 +22,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Book::class, function (Faker\Generator $faker) {
     return [
+        'status' => $faker->randomElement(['public', 'draft']),
         'title' => $faker->sentence(), 
         'description' => $faker->paragraph
     ];

@@ -15,6 +15,7 @@ class CreateBooksTable extends Migration
         Schema::create('books', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('category_id');
+            $table->enum('status', ['public', 'draft']);
             $table->string('title', 100);
             $table->text('description');
             $table->softDeletes();

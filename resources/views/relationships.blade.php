@@ -5,7 +5,7 @@
     
     <ul>
         @foreach ($category->books as $book)
-            <li>{{ $book->title }}</li>
+            <li><strong>{{ $book->status }}</strong> - {{ $book->title }} </li>
         @endforeach
     </ul>
 @endforeach

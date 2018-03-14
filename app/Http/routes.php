@@ -12,10 +12,13 @@
 */
 
 use Illuminate\Http\Request;
+use App\Category;
 use App\Book;
 
 Route::get('/', function () {
-    return view('welcome');
+    $categories = Category::all();
+
+    return view('relationships', compact('categories'));
 });
 
 Route::get('books', function () {

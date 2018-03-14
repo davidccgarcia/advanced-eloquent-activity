@@ -2,6 +2,9 @@
 
 use Illuminate\Database\Seeder;
 
+use App\Category;
+use App\Book;
+
 class BookTableSeeder extends Seeder
 {
     /**
@@ -11,6 +14,11 @@ class BookTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Book::class)->times(20)->create();
+        $categories = Category::all();
+        $books = factory(Book::class)->times(20)->make();
+
+        foreach ($books as $book) {
+            $categories->random()->books()->save($book);
+        }
     }
 }

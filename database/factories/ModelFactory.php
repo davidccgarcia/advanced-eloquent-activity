@@ -22,7 +22,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Book::class, function (Faker\Generator $faker) {
     return [
-        'title' => $faker->title, 
+        'title' => $faker->sentence(), 
         'description' => $faker->paragraph
     ];
 });

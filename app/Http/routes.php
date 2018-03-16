@@ -24,6 +24,15 @@ Route::get('/', function () {
     return view('relationships', compact('categories'));
 });
 
+Route::get('querybuilder', function () {
+    $users = DB::table('users')
+        ->where('name', 'Dr. Renee Stoltenberg I')
+        ->select('name as user_name', 'email')
+        ->get();
+
+    return view('querybuilder.index', compact('users'));
+});
+
 Route::get('manytomany', function() {
     $users = User::has('books')->get();
 

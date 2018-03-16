@@ -14,6 +14,7 @@
 use Illuminate\Http\Request;
 use App\Category;
 use App\Book;
+use App\User;
 
 Route::get('/', function () {
     $categories = Category::whereHas('books', function ($query) {
@@ -21,6 +22,12 @@ Route::get('/', function () {
     })->get();
 
     return view('relationships', compact('categories'));
+});
+
+Route::get('manytomany', function() {
+    $users = User::has('books')->get();
+
+    return view('manytomany', compact('users'));
 });
 
 Route::get('books', function () {

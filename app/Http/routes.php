@@ -27,8 +27,18 @@ Route::get('/', function () {
 Route::get('manytomany', function() {
     $users = User::has('books')->get();
 
-    return view('manytomany', compact('users'));
+    return view('manytomany.index', compact('users'));
 });
+
+Route::get('manytomany/edit/{user_id}', [
+    'as' => 'edit.manytomany', 
+    'uses' => 'UserController@getEditManyToMany'
+]);
+
+Route::put('putEdit/{user_id}', [
+    'as' => 'putEdit', 
+    'uses' => 'UserController@putEdit'
+]);
 
 Route::get('books', function () {
     $books = Book::all();

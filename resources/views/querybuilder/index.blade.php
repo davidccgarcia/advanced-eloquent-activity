@@ -1,11 +1,11 @@
 <h1>Query Builder</h1>
 
-@foreach ($users as $user)
-    <p>{{ $user->user_name }} - {{ $user->email }}</p>
+@foreach ($categories as $category)
+    <p><strong>{{ $category->status }}</strong> - {{ $category->title }}</p>
     
-    <ul>
-    {{-- @foreach ($user->books as $book)
-        <li><strong>{{ $book->title }} </strong> {{ $book->description }}</li>
+    {{-- <ul>
+    @foreach ($category->books as $book)
+        <li>{{ $book->title }} - {{ $book->description }}</li>
     @endforeach
     </ul> --}}
 @endforeach

@@ -25,12 +25,13 @@ Route::get('/', function () {
 });
 
 Route::get('querybuilder', function () {
-    $users = DB::table('users')
-        ->where('name', 'Dr. Renee Stoltenberg I')
-        ->select('name as user_name', 'email')
+    $categories = DB::table('categories')
+        ->join('books', 'categories.id', '=', 'books.category_id')
+        ->select('categories.*', 'books.*')
+        ->where('books.status', 'public')
         ->get();
 
-    return view('querybuilder.index', compact('users'));
+    return view('querybuilder.index', compact('categories'));
 });
 
 Route::get('manytomany', function() {

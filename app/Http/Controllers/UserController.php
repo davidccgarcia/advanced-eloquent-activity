@@ -27,4 +27,11 @@ class UserController extends Controller
 
         return redirect('/');
     }
+
+    public function index()
+    {
+        $users = User::all();
+
+        return view('manytomany.index', compact('users'));
+    }
 }

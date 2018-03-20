@@ -41,4 +41,11 @@ class User extends Model implements AuthenticatableContract,
     {
         return $this->belongsToMany(Book::class);
     }
+
+    public function exams()
+    {
+        return $this->belongsToMany(Exam::class)
+            ->withPivot('score')
+            ->withTimestamps();
+    }
 }

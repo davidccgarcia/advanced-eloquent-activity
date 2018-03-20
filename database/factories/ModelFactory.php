@@ -27,3 +27,9 @@ $factory->define(App\Book::class, function (Faker\Generator $faker) {
         'description' => $faker->paragraph
     ];
 });
+
+$factory->define(App\Exam::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->sentence()
+    ];
+});

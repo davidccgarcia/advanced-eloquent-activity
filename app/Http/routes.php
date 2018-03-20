@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 use App\Category;
 use App\Book;
 use App\User;
+use App\Post;
 
 Route::get('/', function () {
     $categories = Category::whereHas('books', function ($query) {
@@ -22,6 +23,12 @@ Route::get('/', function () {
     })->get();
 
     return view('relationships', compact('categories'));
+});
+
+Route::get('polymorphic', function () {
+    $post = Post::find(2);
+
+    return view('polymorphic', compact('post'));
 });
 
 Route::get('querybuilder', function () {
